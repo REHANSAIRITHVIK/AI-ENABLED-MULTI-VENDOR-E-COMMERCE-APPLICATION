@@ -1,0 +1,40 @@
+{% extends "shared/base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/product.css') }}">
+
+<div class="product-detail-container">
+    <div class="product-image-large">
+        <img src="{{ url_for('static', filename='images/' + product.image_path) }}" alt="{{ product.name }}">
+    </div>
+
+    <div class="product-info">
+        <h1 style="color: var(--primary-neon);">{{ product.name }}</h1>
+        <p style="color: var(--text-dim);">Category: {{ product.category }}</p>
+        
+        <div style="margin: 20px 0;">
+            <span style="color: #ffcc00; font-size: 1.2rem;">★★★★☆</span> 
+            <span style="margin-left: 10px;">(120 Verified Reviews)</span>
+        </div>
+
+        <div class="price-tag">₹{{ product.price }}</div>
+
+        {% if product.category in ['mens_fashion', 'womens_fashions', 'shoes'] %}
+        <div style="margin-bottom: 20px;">
+            <label>Select Size:</label><br>
+            <select style="padding: 10px; background: var(--glass); color: white; border-radius: 5px; margin-top: 5px;">
+                <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+            </select>
+        </div>
+        {% endif %}
+
+        <div style="background: var(--glass); padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <p>🚚 <strong>Estimated Delivery:</strong> 3-5 Business Days</p>
+            <p>📍 <strong>Shipping To:</strong> Your Current Location</p>
+        </div>
+
+        <form action="{{ url_for('add_to_cart', product_id=product.id) }}" method="POST">
+            <button type="submit" class="btn-neon" style="width: 100%; padding: 15px;">Add to Shopping Cart</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

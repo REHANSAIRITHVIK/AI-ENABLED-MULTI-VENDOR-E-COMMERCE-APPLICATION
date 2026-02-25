@@ -1,0 +1,29 @@
+{% extends "shared/base.html" %}
+{% block content %}
+<h2 style="color: var(--primary-neon);">Master Product List</h2>
+
+<table class="vendor-table">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Vendor ID</th>
+            <th>Price</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td><img src="{{ url_for('static', filename='images/' + product.image_path) }}" width="40" style="background: white;"></td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category }}</td>
+            <td>Vendor #{{ product.vendor_id }}</td>
+            <td>₹{{ product.price }}</td>
+            <td><span style="color: #38ef7d;">Live</span></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

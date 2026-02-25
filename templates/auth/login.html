@@ -1,0 +1,34 @@
+{% extends "shared/base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <h2 style="color: var(--primary-neon); margin-bottom: 10px;">Welcome Back</h2>
+        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 25px;">Login to your AI Multi-Vendor account</p>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <div style="color: var(--accent-pink); margin-bottom: 15px; font-size: 0.8rem;">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('login') }}" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            
+            <button type="submit" class="btn-neon" style="width: 100%; margin-top: 20px;">
+                Sign In
+            </button>
+        </form>
+
+        <div style="margin-top: 25px; font-size: 0.85rem;">
+            <span>Don't have an account? </span>
+            <a href="{{ url_for('register') }}" style="color: var(--secondary-neon); font-weight: bold;">Register Now</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

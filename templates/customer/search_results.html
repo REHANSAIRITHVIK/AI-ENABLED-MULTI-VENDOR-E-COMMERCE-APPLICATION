@@ -1,0 +1,25 @@
+{% extends "shared/base.html" %}
+
+{% block content %}
+<div style="padding: 30px; color: white;">
+    <h2 style="color: var(--primary-neon); margin-bottom: 20px;">Search Results for "{{ query }}"</h2>
+    
+    {% if products %}
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
+        {% for product in products %}
+        <div style="background: #111; padding: 15px; border-radius: 10px; border: 1px solid #333;">
+            <img src="{{ url_for('static', filename='images/' + product.image_path) }}" style="width: 100%; height: 150px; object-fit: contain;">
+            <h4 style="margin: 10px 0;">{{ product.name }}</h4>
+            <p style="color: #00ff88; font-weight: bold;">₹{{ product.price }}</p>
+            <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn-neon" style="display:block; text-align:center; margin-top:10px;">View</a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div style="text-align: center; padding: 50px; color: #888;">
+        <i class="fas fa-ghost" style="font-size: 3rem; margin-bottom: 15px;"></i>
+        <p>No products matched your search.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

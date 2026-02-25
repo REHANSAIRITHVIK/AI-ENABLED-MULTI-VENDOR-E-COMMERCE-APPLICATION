@@ -1,0 +1,44 @@
+:root {
+    --bg-dark: #0f0f0f;
+    --card-bg: #1a1a1a;
+    --primary-neon: #00f2ff;
+    --secondary-neon: #7000ff;
+    --accent-pink: #ff007a;
+    --text-main: #ffffff;
+    --text-dim: #b3b3b3;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+    padding: 80px 20px 20px 20px; /* Space for navbar */
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Glass-morphic Button */
+.btn-neon {
+    background: linear-gradient(45deg, var(--primary-neon), var(--secondary-neon));
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-neon:hover {
+    box-shadow: 0 0 15px var(--primary-neon);
+    transform: scale(1.05);
+}

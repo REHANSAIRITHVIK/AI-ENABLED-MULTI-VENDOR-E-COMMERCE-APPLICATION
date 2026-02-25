@@ -1,0 +1,40 @@
+.product-detail-container {
+    display: flex;
+    gap: 50px;
+}
+
+.product-image-large {
+    flex: 1;
+    background: #fff; /* White background for electronic products usually looks cleaner */
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.product-image-large img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.price-tag {
+    font-size: 2rem;
+    color: var(--primary-neon);
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+/* Cart Styles */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}

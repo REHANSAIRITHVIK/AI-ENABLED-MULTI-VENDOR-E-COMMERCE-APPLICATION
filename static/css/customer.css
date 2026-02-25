@@ -1,0 +1,29 @@
+.category-header {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.category-pill {
+    display: inline-block;
+    padding: 8px 15px;
+    background: var(--glass);
+    border: 1px solid var(--text-dim);
+    border-radius: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.category-pill.active {
+    background: var(--primary-neon);
+    color: black;
+    border-color: var(--primary-neon);
+}

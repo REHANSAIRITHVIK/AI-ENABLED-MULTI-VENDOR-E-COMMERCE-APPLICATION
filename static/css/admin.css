@@ -1,0 +1,16 @@
+.admin-sidebar {
+    border-right: 2px solid #ffcc00; /* Gold Border */
+}
+
+.user-status-online { color: #00ff00; }
+.user-status-offline { color: #ff0000; }
+
+.admin-action-btn {
+    padding: 5px 10px;
+    border-radius: 4px;
+    background: #444;
+    color: white;
+    font-size: 12px;
+}
+
+.admin-action-btn.delete { background: #b30000; }

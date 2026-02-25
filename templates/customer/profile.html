@@ -1,0 +1,28 @@
+{% extends "shared/base.html" %}
+{% block content %}
+<div class="auth-card" style="margin: 0 auto; text-align: left;">
+    <h2 style="color: var(--primary-neon); text-align: center;">Account Profile</h2>
+    <div style="text-align: center; margin-bottom: 30px;">
+        <div style="width: 80px; height: 80px; background: var(--secondary-neon); border-radius: 50%; display: inline-block; line-height: 80px; font-size: 2rem; color: white;">
+            {{ session['username'][0].upper() }}
+        </div>
+    </div>
+    
+    <label style="color: var(--text-dim); font-size: 0.8rem;">Username</label>
+    <p style="font-size: 1.1rem; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 5px;">
+        {{ session['username'] }}
+    </p>
+
+    <label style="color: var(--text-dim); font-size: 0.8rem;">Account Type</label>
+    <p style="font-size: 1.1rem; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 5px; text-transform: capitalize;">
+        {{ session['role'] }}
+    </p>
+
+    <label style="color: var(--text-dim); font-size: 0.8rem;">Saved Address</label>
+    <p style="font-size: 0.9rem; margin-bottom: 30px; color: var(--text-dim);">
+        No address saved yet. Update your profile to add delivery details.
+    </p>
+
+    <button class="btn-neon" style="width: 100%;">Edit Profile</button>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "shared/base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/vendor.css') }}">
+
+<h2 style="color: var(--primary-neon);">Manage Your Catalog</h2>
+
+<table class="vendor-table">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td><img src="{{ url_for('static', filename='images/' + product.image_path) }}" width="50" style="background: white;"></td>
+            <td>{{ product.name }}</td>
+            <td style="text-transform: capitalize;">{{ product.category }}</td>
+            <td>₹{{ product.price }}</td>
+            <td>
+                <button class="btn-neon" style="padding: 5px 10px; font-size: 0.7rem;">Edit</button>
+                <button class="btn-neon" style="padding: 5px 10px; font-size: 0.7rem; background: var(--accent-pink);">Delete</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

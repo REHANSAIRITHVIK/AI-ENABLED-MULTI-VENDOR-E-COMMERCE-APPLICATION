@@ -1,0 +1,34 @@
+{% extends "shared/base.html" %}
+{% block content %}
+<h2 style="color: var(--secondary-neon);">User Management</h2>
+
+<table class="vendor-table">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Control</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>#{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>
+                <span style="color: {% if user.role == 'vendor' %}var(--primary-neon){% else %}white{% endif %};">
+                    {{ user.role.upper() }}
+                </span>
+            </td>
+            <td><span class="user-status-online">● Online</span></td>
+            <td>
+                <button class="admin-action-btn">Mute</button>
+                <button class="admin-action-btn delete">Ban</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

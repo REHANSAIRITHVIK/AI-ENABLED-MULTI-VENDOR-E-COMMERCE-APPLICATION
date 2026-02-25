@@ -1,0 +1,35 @@
+{% extends "shared/base.html" %}
+{% block content %}
+<h2 style="color: var(--primary-neon); margin-bottom: 30px;">My Order History</h2>
+
+<div class="order-container" style="max-width: 900px;">
+    {% if orders %}
+        {% for order in orders %}
+        <div style="background: var(--card-bg); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 5px solid var(--secondary-neon);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h4 style="margin: 0;">Order ID: #ORD_{{ order.id }}</h4>
+                    <p style="font-size: 0.8rem; color: var(--text-dim);">Date: {{ order.date }}</p>
+                </div>
+                <span style="background: rgba(56, 239, 125, 0.2); color: #38ef7d; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">
+                    Status: {{ order.status }}
+                </span>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #333; margin: 15px 0;">
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <img src="{{ url_for('static', filename='images/' + order.image_path) }}" width="60" style="border-radius: 5px;">
+                <div>
+                    <p style="margin: 0; font-weight: bold;">{{ order.product_name }}</p>
+                    <p style="margin: 0; color: var(--primary-neon);">Total Paid: ₹{{ order.total }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div style="text-align: center; padding: 50px;">
+            <p style="color: var(--text-dim);">You haven't placed any orders yet.</p>
+            <a href="{{ url_for('customer_dashboard') }}" class="btn-neon">Start Shopping</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

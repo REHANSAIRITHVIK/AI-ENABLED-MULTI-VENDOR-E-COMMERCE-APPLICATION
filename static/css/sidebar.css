@@ -1,0 +1,38 @@
+.sidebar {
+    width: 250px;
+    background: rgba(30, 30, 30, 0.95);
+    border-right: 2px solid;
+    border-image: linear-gradient(to bottom, #ff00cc, #3333ff) 1;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+    color: white;
+}
+
+.filter-group h4 {
+    color: #00d2ff; /* Cyan color */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.filter-group ul {
+    list-style: none;
+    padding: 0;
+}
+
+.filter-group ul li {
+    padding: 8px 0;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-group ul li:hover {
+    color: #ff00cc; /* Neon pink on hover */
+    padding-left: 5px;
+}
+
+input[type="checkbox"] {
+    accent-color: #38ef7d; /* Green accent */
+}

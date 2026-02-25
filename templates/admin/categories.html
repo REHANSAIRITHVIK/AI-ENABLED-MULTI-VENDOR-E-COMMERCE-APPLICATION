@@ -1,0 +1,32 @@
+{% extends "shared/base.html" %}
+{% block content %}
+<h2 style="color: var(--secondary-neon);">Manage Store Categories</h2>
+
+<div style="background: var(--card-bg); padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+    <form style="display: flex; gap: 10px;">
+        <input type="text" placeholder="New Category Name" style="flex: 1; padding: 10px; background: var(--glass); color: white; border: 1px solid #444;">
+        <button class="btn-neon">Add Category</button>
+    </form>
+</div>
+
+<table class="vendor-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Category Name</th>
+            <th>Total Products</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cat in categories %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td style="text-transform: capitalize;">{{ cat.name }}</td>
+            <td>{{ cat.count }}</td>
+            <td><button class="admin-action-btn delete">Remove</button></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "shared/base.html" %}
+{% block content %}
+<div class="auth-card" style="margin: 0 auto;">
+    <h2>Secure Payment</h2>
+    <p>Amount to Pay: <strong>₹{{ total }}</strong></p>
+    <div style="margin: 20px 0; text-align: left;">
+        <input type="radio" name="pay" checked> UPI / GPay <br>
+        <input type="radio" name="pay"> Credit / Debit Card <br>
+        <input type="radio" name="pay"> Cash on Delivery
+    </div>
+    <a href="{{ url_for('payment_status', status='success') }}" class="btn-neon" style="display: block;">Pay Now</a>
+</div>
+{% endblock %}

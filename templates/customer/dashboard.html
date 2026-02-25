@@ -1,0 +1,30 @@
+{% extends "shared/base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/customer.css') }}">
+
+<div class="category-header">
+    <h1 style="color: var(--primary-neon);">Explore AI Market</h1>
+    <p>Premium Tech & Fashion at your fingertips</p>
+</div>
+
+<div class="category-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 30px;">
+    {% for cat in ['laptops', 'mobiles', 'headphones', 'ac', 'tv', 'refrigerator', 'books', 'mens_fashion', 'womens_fashions', 'shoes', 'watches', 'coolers'] %}
+    <a href="{{ url_for('view_products', category=cat) }}" class="category-card" style="background: var(--card-bg); padding: 20px; border-radius: 15px; border: 1px solid var(--glass); text-align: center;">
+        <h3 style="text-transform: capitalize; color: var(--secondary-neon);">{{ cat.replace('_', ' ') }}</h3>
+        <span style="color: var(--text-dim);">View Collection →</span>
+    </a>
+    {% endfor %}
+</div>
+
+<h2 style="margin-top: 50px; color: var(--primary-neon);">Recent Products</h2>
+<div class="product-grid">
+    {% for product in products %}
+    <div class="product-card">
+        <img src="{{ url_for('static', filename='images/' + product.image_path) }}" alt="{{ product.name }}" style="width: 100%; height: 200px; object-fit: contain; background: #fff; border-radius: 10px;">
+        <h4 style="margin: 15px 0 5px 0;">{{ product.name }}</h4>
+        <p style="color: var(--primary-neon); font-weight: bold;">₹{{ product.price }}</p>
+        <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn-neon" style="display: block; text-align: center; font-size: 0.8rem;">View Details</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

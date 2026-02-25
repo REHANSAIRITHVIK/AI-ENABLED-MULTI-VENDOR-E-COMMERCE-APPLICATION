@@ -1,0 +1,34 @@
+<div class="sidebar" id="filterSidebar">
+    <h3>Filters</h3>
+    <hr>
+    
+    <div class="filter-group">
+        <h4>Categories</h4>
+        <ul>
+            <li><input type="checkbox" class="filter" data-category="laptops"> Laptops</li>
+            <li><input type="checkbox" class="filter" data-category="mobiles"> Mobiles</li>
+            <li><input type="checkbox" class="filter" data-category="headphones"> Headphones</li>
+            <li><input type="checkbox" class="filter" data-category="tv"> Smart TV</li>
+        </ul>
+    </div>
+
+    <div class="filter-group">
+        <h4>Price Range</h4>
+        <input type="range" min="0" max="200000" id="priceRange">
+        <p>Under: ₹<span id="priceVal">100000</span></p>
+    </div>
+
+
+
+    <div class="filter-group">
+        <h4>Brand</h4>
+        <select id="brandFilter">
+            <option value="all">All Brands</option>
+            <option value="apple">Apple</option>
+            <option value="samsung">Samsung</option>
+            <option value="sony">Sony</option>
+            <option value="dell">Dell</option>
+        </select>
+    </div>
+</div>
+

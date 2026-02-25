@@ -1,0 +1,27 @@
+{% extends "shared/base.html" %}
+{% block content %}
+<h2 style="color: #ff007a;">Platform Sales Log</h2>
+
+<table class="vendor-table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Product</th>
+            <th>Amount</th>
+            <th>Payment</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>#ORD_{{ order.id }}</td>
+            <td>{{ order.customer_name }}</td>
+            <td>{{ order.product_name }}</td>
+            <td>₹{{ order.total }}</td>
+            <td><span class="user-status-online">Paid</span></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
