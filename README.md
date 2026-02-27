@@ -140,6 +140,9 @@ Product Cards: Compact, elegant cards with "Low Stock" FOMO badges.
 
 [ ] Real-time Chat between Customers and Vendors.
 
+## 🔗 Live Demo
+Check out the live application here: [AI Multi-Vendor Marketplace](https://ai-enabled-multi-vendor-e-commerce.onrender.com)
+
 
 🧑‍💻 Developed By
 👨‍💻 DASIKA REHAN SAI RITHVIK
